@@ -1,0 +1,31 @@
+{
+    "key": "ecommpay-integration",
+    "name": {
+      "en": "commercetools ecommpay integration"
+    },
+    "resourceTypeIds": ["payment"],
+    "fieldDefinitions": [
+          {
+        "name": "initial_request",
+        "label": {
+          "en": "Initial request"
+        },
+        "type": {
+          "name": "String"
+        },
+        "inputHint": "SingleLine",
+        "required": false
+      },
+      {
+        "name": "pp_url",
+        "label": {
+          "en": "Payment Page URL"
+        },
+        "type": {
+          "name": "String"
+        },
+        "inputHint": "SingleLine",
+        "required": false
+      }
+    ]
+  }

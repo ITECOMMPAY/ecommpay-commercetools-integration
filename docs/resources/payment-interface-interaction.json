@@ -1,0 +1,86 @@
+{
+    "key": "ecommpay-integration-interaction-payment-type",
+    "name": {
+      "en": "commercetools Ecommpay integration payment interface interaction type"
+    },
+    "resourceTypeIds": ["payment-interface-interaction"],
+    "fieldDefinitions": [
+      {
+        "name": "operation_id",
+        "label": {
+          "en": "Operation id"
+        },
+        "required": false,
+        "type": {
+          "name": "String"
+        },
+        "inputHint": "SingleLine"
+      },
+      {
+        "name": "operation_type",
+        "label": {
+          "en": "Operation type"
+        },
+        "required": false,
+        "type": {
+          "name": "String"
+        },
+        "inputHint": "SingleLine"
+      },
+      {
+        "name": "operation_status",
+        "label": {
+          "en": "Operation status"
+        },
+        "required": false,
+        "type": {
+          "name": "String"
+        },
+        "inputHint": "SingleLine"
+      },
+      {
+        "name": "date",
+        "label": {
+          "en": "Date"
+        },
+        "required": false,
+        "type": {
+          "name": "DateTime"
+        },
+        "inputHint": "SingleLine"
+      },
+      {
+        "name": "sum_initial",
+        "label": {
+          "en": "Sum initial"
+        },
+        "required": false,
+        "type": {
+          "name": "String"
+        },
+        "inputHint": "SingleLine"
+      },
+          {
+        "name": "sum_converted",
+        "label": {
+          "en": "Sum converted"
+        },
+        "required": false,
+        "type": {
+          "name": "String"
+        },
+        "inputHint": "SingleLine"
+      },
+          {
+        "name": "message",
+        "label": {
+          "en": "Message"
+        },
+        "required": false,
+        "type": {
+          "name": "String"
+        },
+        "inputHint": "SingleLine"
+      }
+    ]
+  }
