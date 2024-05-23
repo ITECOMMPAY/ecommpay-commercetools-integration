@@ -41,6 +41,12 @@ class EcommpayConfig extends Config {
   get version(): string {
     return this._version;
   }
+  get extensionLogin(): string {
+    return this._getParamFromJson("EXTENSION_LOGIN");
+  }
+  get extensionPassword(): string {
+    return this._getParamFromJson("EXTENSION_PASSWORD");
+  }
 }
 
 export const ecommpayConfig = new EcommpayConfig();

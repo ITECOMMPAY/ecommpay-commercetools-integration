@@ -6,5 +6,7 @@
     "CT_CLIENT_ID": "CommerceToolsClientId",
     "CT_CLIENT_SECRET": "CommerceToolsClientSecret",
     "CT_API_URL": "https://api.europe-west1.gcp.commercetools.com",
-    "CT_AUTH_URL": "https://auth.europe-west1.gcp.commercetools.com"
+    "CT_AUTH_URL": "https://auth.europe-west1.gcp.commercetools.com",
+    "EXTENSION_LOGIN": "YourExtensionLogin",
+    "EXTENSION_PASSWORD": "YourExtensionPassword"
 }

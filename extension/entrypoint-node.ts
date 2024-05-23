@@ -1,6 +1,7 @@
 import express from "express";
+import { IncomingHttpHeaders } from 'http';
 import paymentController from "./src/controllers/paymentController";
-import { CommercetoolsError, InternalServerError } from "./src/helpers/errors";
+import { CommercetoolsError, InternalServerError, AuthError} from "./src/helpers/errors";
 import { ecommpayConfig } from "./src/services/environmentService";
 import { logger } from "./src/utils/logger";
 import bodyParser from "body-parser";
@@ -22,6 +23,7 @@ app.get("/", (req, res) => {
 
 app.post("/", async (req, res) => {
   try {
+    checkBasicAuth(req.headers);
     const response = await paymentController(req.body);
     logger.log(response);
     res.status(200).json(response);
@@ -39,3 +41,28 @@ app.post("/", async (req, res) => {
 app.listen(port, () => {
   logger.log(`Extension module is listening on port ${port}`);
 });
+
+function checkBasicAuth(headers: IncomingHttpHeaders): void {
+  if (!headers['authorization']) {
+    throw new AuthError(
+      'invalid_request',
+      'Missing header "authorization". Please enable authorization for extension module.'
+      );
+  }
+  const [authType, authToken] = headers['authorization'].split(" ");
+  if (authType !== 'Basic') {
+    throw new AuthError(
+      'invalid_client',
+      `Unsupported authentication method ${authType}`
+      );
+  }
+  let verificationToken = btoa(
+    ecommpayConfig.extensionLogin+':'+ecommpayConfig.extensionPassword
+    );
+  if (verificationToken !== authToken) {
+    throw new AuthError(
+      'invalid_client',
+      `Invalid authorization token`
+      );
+  }
+}

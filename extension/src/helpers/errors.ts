@@ -58,3 +58,27 @@ export class InternalServerError extends CommercetoolsError {
     if (message) this.message = message;
   }
 }
+
+export class InvalidInput extends CommercetoolsError {
+  statusCode = 400;
+  code = "InvalidInput";
+  constructor(message: string = "") {
+      super();
+      if (message) this.message = message;
+  }
+}
+
+export class AuthError extends InvalidInput {
+  statusCode = 401;
+  authErrorCode: string;
+  constructor(authErrorCode: string, message: string) {
+    super();
+    this.authErrorCode = authErrorCode;
+    this.message = message;
+  }
+  toJson() {
+    let res = super.toJson();
+    res['error'] = this.authErrorCode;
+    return res;
+  }
+}

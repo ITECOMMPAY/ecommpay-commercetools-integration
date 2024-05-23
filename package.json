@@ -1,6 +1,6 @@
 {
   "name": "ecommpay-commercetools",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "azure/*.js",
   "scripts": {
     "extension": "npm --prefix extension start",
@@ -14,7 +14,8 @@
     "zip-gcp-notification": "export CP=gcp MODULE=notification && npm run build_module && cd dist/$MODULE && zip -r -q ../../$MODULE.zip .",
     "zip-azure": "export CP=azure && npm run build_modules && cp package.json host.json dist && cd dist && zip -r -q ../azure.zip .",
     "build_module": "rm -rf dist && cp $MODULE/entrypoint-$CP.ts $MODULE/index.ts && npm run build && rm $MODULE/index.ts",
-    "build_modules": "EX=extension NM=notification && rm -rf dist && cp $EX/entrypoint-$CP.ts $EX/index.ts && cp $NM/entrypoint-$CP.ts $NM/index.ts && npm run build && rm $EX/index.ts $NM/index.ts"
+    "build_modules": "EX=extension NM=notification && rm -rf dist && cp $EX/entrypoint-$CP.ts $EX/index.ts && cp $NM/entrypoint-$CP.ts $NM/index.ts && npm run build && rm $EX/index.ts $NM/index.ts",
+    "get-basic-token": "echo Basic $(echo -n $login:$password | base64)"
   },
   "author": "Ecommpay",
   "license": "ISC",

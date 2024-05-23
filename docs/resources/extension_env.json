@@ -1,5 +1,7 @@
 {
     "ECP_PROJECT_ID": 123,
     "ECP_SECRET_KEY": "SecretKeyEcommpay",
-    "CALLBACK_URL": "https://callback-url.com"
+    "CALLBACK_URL": "https://callback-url.com",
+    "EXTENSION_LOGIN": "YourExtensionLogin",
+    "EXTENSION_PASSWORD": "YourExtensionPassword"
 }

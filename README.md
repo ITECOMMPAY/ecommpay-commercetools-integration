@@ -86,7 +86,7 @@ Deploy the modules in one of the following ways:
 - ### [Deployment as a Node web server](docs/deployment/as-Node-Server.md)
 - ### [Deployment as a Docker containers](docs/deployment/as-Docker-Container.md)
 - ### [Deployment as an Amazon Lambda Serverless Function](docs/deployment/as-AWS-Lambda.md)
-- ### [Deployment as an Azure Cloud Serverless Function](docs/deployment/as-Azure-Serverless)
+- ### [Deployment as an Azure Cloud Serverless Function](docs/deployment/as-Azure-Serverless.md)
 - ### [Deployment as a GCP Function](docs/deployment/as-GCP-Function.md)
 
 ### Environment variables
@@ -100,6 +100,8 @@ Deploy the modules in one of the following ways:
 |ECP_PROJECT_ID|INT|Ecommpay Project ID|
 |ECP_SECRET_KEY|String|The secret key of the Ecommpay project|
 |CALLBACK_URL|String|URL for receiving notifications from the Ecommpay platform|
+|EXTENSION_LOGIN|string|This parameter is for deploying as a node server or docker|
+|EXTENSION_PASSWORD|string|This parameter is for deploying as a node server or docker|
 
 ### Custom types
 Set [custom types](https://docs.commercetools.com/api/projects/types#create-type)  to be able to save the payment information of Ecommpay transactions in the payment object.
@@ -230,6 +232,10 @@ For Payment object:
 ```
 
 ### API Extension
+
+> **We strongly recommend enabling authentication with your cloud platform** (how to do it see [here](https://docs.commercetools.com/tutorials/extensions#setting-up-an-api-extension)) \
+> If you deploy the extension module as a standalone server you should use the header authorization.
+
 Set the [API Extension](https://docs.commercetools.com/api/projects/api-extensions#create-extension) to create a payment with JSON:
 ```json
 {
